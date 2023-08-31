@@ -1,0 +1,269 @@
+
+
+import time
+
+print(time.ctime(0)) #covert a time expressed in seconds since epoch to a readable strinb
+#                     epoch= when your computer thinks time began (reference point)
+print(time.ctime(1000000))
+
+print(time.time()) #return current seconds since epock
+
+print(time.ctime(time.time()))
+
+time_object=time.localtime() #local time
+print(time_object)
+local_time=time.strftime("%B %d %Y %H:%M:%S",time_object)
+print(local_time)
+
+print(time.gmtime()) #UTC time
+
+time_string="20 April, 2020"
+time_object2=time.strptime(time_string,"%d %B, %Y")
+print(time_object2)
+
+# (year, month, day, hours, minutes, secs, #day of the week, #day of the year, dst)
+time_tuple=(2022,4,20,4,20,0,0,0,0)
+time_string2=time.asctime(time_tuple)
+time_string3=time.mktime(time_tuple)
+print(time_string2)
+print(time_string3)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Wed Dec 31 16:00:00 1969
+Mon Jan 12 05:46:40 1970
+1666363731.2383943
+Fri Oct 21 07:48:51 2022
+time.struct_time(tm_year=2022, tm_mon=10, tm_mday=21, tm_hour=7, tm_min=48, tm_sec=51, tm_wday=4, tm_yday=294, tm_isdst=1)
+October 21 2022 07:48:51
+time.struct_time(tm_year=2022, tm_mon=10, tm_mday=21, tm_hour=14, tm_min=48, tm_sec=51, tm_wday=4, tm_yday=294, tm_isdst=0)
+time.struct_time(tm_year=2020, tm_mon=4, tm_mday=20, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=111, tm_isdst=-1)
+Mon Apr 20 04:20:00 2022
+1650457200.0
+
+Process finished with exit code 0
+
+
+
+
+THREADING
+thread = a flow of execution, like a separate order of instructions.
+          however each thread takes a turn running to achieve concurrency
+          GIL = (global interpreter lock),
+          allows only one thread to hold the control of the python interpreter
+
+CPU bound = program/task spends most of it's time waiting for internal events (CPU intensive)
+            use multiprocessing
+
+
+io bound= program/task spends most of it's time waiting for external events (user input, web scraping)
+          use multithreading
+
+
+import threading
+import time
+
+def eat_breakfast():
+    time.sleep(3)
+    print("you eat breakfast")
+
+def drink_coffee():
+    time.sleep(4)
+    print("you drank coffee")
+
+def study():
+    time.sleep(5)
+    print("you finish studying")
+
+
+eat_breakfast()
+drink_coffee()
+study()
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+you eat breakfast
+you drank coffee
+you finish studying
+12.079905825
+1
+[<_MainThread(MainThread, started 3140)>]
+
+Process finished with exit code 0
+
+
+x=threading.Thread(target=eat_breakfast,args=())
+x.start()
+
+y=threading.Thread(target=drink_coffee,args=())
+y.start()
+
+z=threading.Thread(target=study,args=())
+z.start()
+
+x.join()
+y.join()
+z.join()
+
+
+print(time.perf_counter())
+print(threading.active_count())
+print(threading.enumerate())
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+you eat breakfast
+you drank coffee
+you finish studying
+5.076946407
+1
+[<_MainThread(MainThread, started 3084)>]
+
+
+
+
+DAEMON THREAD
+daemon thread = a thread that runs in the background, not important for program to run
+                your program will not wait for daemon threads to complete before exiting
+                non-daemon threads cannot normally be killed, stay alive until task is complete
+
+      ex. background tasks, garbage collection, waiting for input, long running processes
+
+
+import threading
+import time
+
+def timer():
+    print()
+    count=0
+    while True:
+        time.sleep(1)
+        count+=1
+        print("logged in for : ",count,"secound")
+
+x=threading.Thread(target=timer,daemon=True)
+#x.setDaemon(True)
+x.start()
+print(x.isDaemon())
+
+snswer=input("Do you wish to exit? :")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+
+True
+Do you wish to exit? :
+logged in for :  1 secound
+logged in for :  2 secound
+logged in for :  3 secound
+logged in for :  4 secound
+logged in for :  5 secound
+logged in for :  6 secound
+ok
+
+Process finished with exit code 0
+
+
+
+*****************************
+PYTHON MULTIPROCESSING
+*****************************
+multiprocessing= running tasks in parallel different CPU coress ,bypasses GIL use for threatding
+                 multiprocessing = better for CPU bound tasks (heavy CPU usage)
+                 multithreading = better for IO bound tasks (waiting around)
+
+from multiprocessing import Process , cpu_count
+import time
+
+def counter(num):
+    count=0
+    while count<num:
+        count+=1
+
+def main():
+    a=Process(target=counter,args=(1000000000,))
+    a.start()
+    a.join()
+    print("finished in : ",time.perf_counter(),"seconds")
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+finished in :  68.941112878 seconds
+
+Process finished with exit code 0
+
+def main():
+    a=Process(target=counter,args=(500000000,))
+    b=Process(target=counter, args=(500000000,))
+    a.start()
+    b.start()
+    a.join()
+    b.join()
+    print("finished in : ",time.perf_counter(),"seconds")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+finished in :  40.016252894 seconds
+
+Process finished with exit code 0
+
+def main():
+    a=Process(target=counter,args=(250000000,))
+    b=Process(target=counter, args=(250000000,))
+    c=Process(target=counter, args=(250000000,))
+    d=Process(target=counter, args=(250000000,))
+
+    a.start()
+    b.start()
+    c.start()
+    d.start()
+    a.join()
+    b.join()
+    c.join()
+    d.join()
+    print("finished in : ",time.perf_counter(),"seconds")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+finished in :  35.734557128 seconds
+
+Process finished with exit code 0
+
+
+def main():
+    print(cpu_count())
+
+    a=Process(target=counter, args=(125000000,))
+    b=Process(target=counter, args=(125000000,))
+    c=Process(target=counter, args=(125000000,))
+    d=Process(target=counter, args=(125000000,))
+    e=Process(target=counter, args=(125000000,))
+    f=Process(target=counter, args=(125000000,))
+    g=Process(target=counter, args=(125000000,))
+    h=Process(target=counter, args=(125000000,))
+
+    a.start()
+    b.start()
+    c.start()
+    d.start()
+    e.start()
+    f.start()
+    g.start()
+    h.start()
+
+    a.join()
+    b.join()
+    c.join()
+    d.join()
+    e.join()
+    f.join()
+    g.join()
+    h.join()
+
+    print("finished in : ",time.perf_counter(),"seconds")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+4
+finished in :  40.297234124 seconds
+
+Process finished with exit code 0
+
+
+
+
+if __name__=="__main__":
+    main()

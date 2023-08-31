@@ -1,0 +1,797 @@
+import sqlite3
+#database save in memory
+#connect=sqlite3.connect(":memory:")
+
+#connect to database
+connect=sqlite3.connect("customer.db")
+
+#create a cursor
+cursor=connect.cursor()
+
+#create a table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS customer
+(first_name TEXT,
+last_name TEXT,
+email_it TEXT,
+rating INTEGER)
+
+
+""")
+
+
+#DATA TYPE
+#NULL      = EXISTS or don't EXISTS
+#INTEGER   = A HULL NUMBER
+#REAL      = A FLOAT NUMBER
+#TEXT      = TEXT
+#BLOB      = BOLB FO DATA CAN BE ANYTHING
+
+
+#commit our command
+connect.commit()
+print("\n table has been create")
+
+#close our connection
+connect.close()
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+
+ table has been create
+
+Process finished with exit code 0
+
+
+
+
+
+******************************
+INSERT ONE RECORF INTO THE TABLE
+******************************
+
+import sqlite3
+
+connect to database
+connect=sqlite3.connect("customer.db")
+
+create a cursor
+cursor=connect.cursor()
+
+cursor.execute(""" INSERT INTO customer VALUES
+ ('mary','brown','mary@codemy.com',100)
+ """)
+
+connect.commit()
+print("command has executed succesfully >>>>")
+connect.close()
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+command has executed succesfully >>>>
+
+Process finished with exit code 0
+
+**********************************
+INSERT MANY RECORDS INTO THE TABLE
+**********************************
+
+
+import sqlite3
+
+connect to database
+connect=sqlite3.connect("customer.db")
+
+create a cursor
+cursor=connect.cursor()
+many_customer=[
+    ("was","brown","was@brown.com",60),
+    ("steph","kuewa","steph@kuwa.com",80),
+    ("dan","pas","dan@pas.com",20)]
+cursor.executemany("INSERT INTO customer VALUES (?,?,?,?)",many_customer)
+
+commit our command
+connect.commit()
+print("\n command has executed succesfully >>>>")
+
+close our connection
+connect.close()
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+
+ command has executed succesfully >>>>
+
+Process finished with exit code 0
+
+
+
+
+
+
+****************************************
+QUERY AND FETCH
+*********************************************
+
+
+import sqlite3
+
+connect to database
+connect=sqlite3.connect("customer.db")
+
+create a cursor
+cursor=connect.cursor()
+
+cursor.execute("SELECT * FROM customer")
+print(cursor.fetchone())
+print(cursor.fetchmany(4))
+print(cursor.fetchall())
+
+fetch=cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+
+
+commit our command
+connect.commit()
+
+close our connection
+connect.close()
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+('omer', 'tiya', 'omer@gmail.com', 2000)
+('omer', 'hasan', 'omer@gmail.com', 3000)
+('john', 'elder', 'john@codemy.com', 1000)
+('tim', 'smith', 'tim@codemy.com', 1000)
+('john', 'elder', 'john@codemy.com', 500)
+('mary', 'brown', 'mary@codemy.com', 500)
+('mary', 'brown', 'mary@codemy.com', 100)
+('was', 'brown', 'was@brown.com', 60)
+('steph', 'kuewa', 'steph@kuwa.com', 80)
+('dan', 'pas', 'dan@pas.com', 20)
+
+Process finished with exit code 0
+
+
+*******************************************
+FORMAT RESULTS
+******************************************
+
+
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("SELECT * FROM customer")
+print(cursor.fetchone()[0])
+# print(cursor.fetchmany(4))
+# print(cursor.fetchall()[2][0])
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item[0])
+
+# commit our command
+connect.commit()
+
+# close our connection
+connect.close()
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+omer
+omer
+john
+tim
+john
+mary
+mary
+was
+steph
+dan
+
+Process finished with exit code 0
+
+
+*****************************
+PRIMARY KEY ID
+****************************
+
+
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("SELECT rowid,* FROM customer")
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+# close our connection
+connect.close()
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(1, 'omer', 'tiya', 'omer@gmail.com', 2000)
+(2, 'omer', 'hasan', 'omer@gmail.com', 3000)
+(3, 'john', 'elder', 'john@codemy.com', 1000)
+(4, 'tim', 'smith', 'tim@codemy.com', 1000)
+(5, 'john', 'elder', 'john@codemy.com', 500)
+(6, 'mary', 'brown', 'mary@codemy.com', 500)
+(7, 'mary', 'brown', 'mary@codemy.com', 100)
+(8, 'was', 'brown', 'was@brown.com', 60)
+(9, 'steph', 'kuewa', 'steph@kuwa.com', 80)
+(10, 'dan', 'pas', 'dan@pas.com', 20)
+
+Process finished with exit code 0
+
+
+
+**********************************
+WHERE CLAUSE
+**************************************
+
+
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("SELECT rowid,* FROM customer WHERE first_name='omer'")
+
+cursor.execute("SELECT rowid,* FROM customer WHERE last_name LIKE 'br%'")
+
+cursor.execute("SELECT rowid,* FROM customer WHERE email_it LIKE '%gmail.com'")
+
+
+cursor.execute("SELECT rowid,* FROM customer WHERE rating>500")
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(1, 'omer', 'tiya', 'omer@gmail.com', 2000)
+(2, 'omer', 'hasan', 'omer@gmail.com', 3000)
+(3, 'john', 'elder', 'john@codemy.com', 1000)
+(4, 'tim', 'smith', 'tim@codemy.com', 1000)
+
+Process finished with exit code 0
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************
+UPDATE RECORDS
+**********************************
+
+
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+
+cursor.execute("UPDATE customer SET first_name='nally' WHERE rowid=2")
+connect.commit()
+
+cursor.execute("SELECT rowid,* FROM customer")
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(1, 'omer', 'tiya', 'omer@gmail.com', 2000)
+(2, 'nally', 'hasan', 'omer@gmail.com', 3000)
+(3, 'john', 'elder', 'john@codemy.com', 1000)
+(4, 'tim', 'smith', 'tim@codemy.com', 1000)
+(5, 'john', 'elder', 'john@codemy.com', 500)
+(6, 'mary', 'brown', 'mary@codemy.com', 500)
+(7, 'mary', 'brown', 'mary@codemy.com', 100)
+(8, 'was', 'brown', 'was@brown.com', 60)
+(9, 'steph', 'kuewa', 'steph@kuwa.com', 80)
+(10, 'dan', 'pas', 'dan@pas.com', 20)
+
+Process finished with exit code 0
+
+
+
+# ***********************
+# DELETE RECORD
+# ************************
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("DELETE FROM customer WHERE rowid=10 ")
+
+connect.commit()
+
+cursor.execute("SELECT rowid,* FROM customer")
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(1, 'omer', 'tiya', 'omer@gmail.com', 2000)
+(2, 'nally', 'hasan', 'omer@gmail.com', 3000)
+(3, 'john', 'elder', 'john@codemy.com', 1000)
+(4, 'tim', 'smith', 'tim@codemy.com', 1000)
+(5, 'john', 'elder', 'john@codemy.com', 500)
+(6, 'mary', 'brown', 'mary@codemy.com', 500)
+(7, 'mary', 'brown', 'mary@codemy.com', 100)
+(8, 'was', 'brown', 'was@brown.com', 60)
+(9, 'steph', 'kuewa', 'steph@kuwa.com', 80)
+
+Process finished with exit code 0
+
+
+
+
+
+
+
+# ***********************
+# ORDER RESULTS BY
+# ************************
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("SELECT rowid,* FROM customer ORDER BY rating DESC or ASC")
+
+#ASC=ASCending   (form low to high )
+#DESC= DESCending (form high to low)
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+
+
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(2, 'nally', 'hasan', 'omer@gmail.com', 3000)
+(1, 'omer', 'tiya', 'omer@gmail.com', 2000)
+(3, 'john', 'elder', 'john@codemy.com', 1000)
+(4, 'tim', 'smith', 'tim@codemy.com', 1000)
+(5, 'john', 'elder', 'john@codemy.com', 500)
+(6, 'mary', 'brown', 'mary@codemy.com', 500)
+(7, 'mary', 'brown', 'mary@codemy.com', 100)
+(9, 'steph', 'kuewa', 'steph@kuwa.com', 80)
+(8, 'was', 'brown', 'was@brown.com', 60)
+
+Process finished with exit code 0
+
+
+
+**********************************
+GRUOP BY (MIN, MAX, SUM, COUNT, or AVG function)
+
+******************************************
+
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("""
+SELECT *,SUM(rating),COUNT(first_name),AVG(rating)
+FROM customer
+GROUP BY first_name
+ORDER BY rating DESC
+""")
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+
+
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+('omer', 'tiya', 'omer@gmail.com', 2000, 5000, 2, 2500.0)
+('tim', 'smith', 'tim@codemy.com', 1000, 1000, 1, 1000.0)
+('john', 'elder', 'john@codemy.com', 1000, 1500, 2, 750.0)
+('mary', 'brown', 'mary@codemy.com', 500, 600, 2, 300.0)
+('steph', 'kuewa', 'steph@kuwa.com', 80, 80, 1, 80.0)
+('was', 'brown', 'was@brown.com', 60, 60, 1, 60.0)
+('dan', 'pas', 'dan@pas.com', 20, 20, 1, 20.0)
+
+Process finished with exit code 0
+
+
+
+
+# ***********************
+# AND / OR
+# ************************
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("SELECT rowid,* FROM customer WHERE last_name LIKE 'ti%' AND rowid=1")
+# cursor.execute("SELECT rowid,* FROM customer WHERE last_name='brown' OR first_name='m%'")
+
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(1, 'omer', 'tiya', 'omer@gmail.com', 2000)
+(6, 'mary', 'brown', 'mary@codemy.com', 500)
+(7, 'mary', 'brown', 'mary@codemy.com', 100)
+(8, 'was', 'brown', 'was@brown.com', 60)
+
+Process finished with exit code 0
+
+
+
+# ***********************
+# LIMITING RESULTE
+# ************************
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("SELECT rowid,* FROM customer ORDER BY rating DESC LIMIT 3")
+
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(2, 'nally', 'hasan', 'omer@gmail.com', 3000)
+(1, 'omer', 'tiya', 'omer@gmail.com', 2000)
+(3, 'john', 'elder', 'john@codemy.com', 1000)
+
+Process finished with exit code 0
+
+
+
+
+
+
+# ***********************
+# DROP TABLE
+# ************************
+
+import sqlite3
+
+# connect to database
+connect = sqlite3.connect("customer.db")
+
+# create a cursor
+cursor = connect.cursor()
+
+cursor.execute("DROP TABLE customer")
+
+
+fetch = cursor.fetchall()
+
+for item in fetch:
+    print(item)
+
+# commit our command
+connect.commit()
+
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+Traceback (most recent call last):
+  File "F:\Python_SQLite3\main_project\database.py", line 560, in <module>
+    cursor.execute("DROP TABLE customer")
+sqlite3.OperationalError: no such table: customer
+
+Process finished with exit code 1
+
+
+
+
+
+# ***********************************
+# OUR APP
+# ************************************
+
+import sqlite3
+
+def create_table():
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS customer
+    (first_name TEXT,last_name TEXT,email_id TEXT,rading INTEGER)
+    """)
+    connect.commit()
+    connect.close()
+
+
+
+
+# query the db abd return all records
+def show_all():
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.execute("SELECT rowid,* FROM customer")
+    fetch=cursor.fetchall()
+    for item in fetch:
+        print(item)
+
+    connect.commit()
+    connect.close()
+
+
+
+# add a record function
+
+def add_one(first_name,last_name,email_id,rating):
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.execute("INSERT INTO customer VALUES(?,?,?,?)",(first_name,last_name,email_id,rating))
+    connect.commit()
+    connect.close()
+
+
+# add many records to table
+def add_many(list):
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.executemany("INSERT INTO customer VALUES (?,?,?,?)",(list))
+    connect.commit()
+    connect.close()
+
+
+
+
+# delete a record function
+def delete(rowid):
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.execute("DELETE FROM customer WHERE rowid=(?)",(rowid,))
+    connect.commit()
+    connect.close()
+
+
+
+# where clause function
+def find_name(first_name):
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.execute("SELECT * FROM customer WHERE first_name=(?)",(first_name,))
+    fetch=cursor.fetchall()
+    for item in fetch:
+        print(item)
+    connect.commit()
+    connect.close()
+
+
+
+# GROUP BY NAME AND SUM RATING
+def group():
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.execute("SELECT rowid,first_name,SUM(rading) FROM customer GROUP BY first_name ORDER BY rading DESC")
+    fetch=cursor.fetchall()
+    for item in fetch:
+        print(item)
+
+    connect.commit()
+    connect.close()
+
+
+
+# sum of rating
+
+def sum_rating():
+    connect=sqlite3.connect("customer.db")
+    cursor=connect.cursor()
+    cursor.execute("SELECT SUM(rading) FROM customer")
+    fetch=cursor.fetchall()
+    for item in fetch:
+        print(item)
+
+    connect.commit()
+    connect.close()
+
+
+
+
+
+
+
+
+create_table()
+# add_one("nani","samainy","nani@gmail.com",5000),
+# customer_list=[ ('omer', 'tiya', 'omer@gmail.com', 2000),
+#             ('nally', 'hasan', 'omer@gmail.com', 3000),
+#             ('john', 'elder', 'john@codemy.com', 1000),
+#             ('tim', 'smith', 'tim@codemy.com', 1000),
+#             ('john', 'elder', 'john@codemy.com', 500),
+#             ('mary', 'brown', 'mary@codemy.com', 500),
+#             ('mary', 'brown', 'mary@codemy.com', 100),
+#             ('was', 'brown', 'was@brown.com', 60),
+#             ('steph', 'kuewa', 'steph@kuwa.com', 80),
+#             ( 'dan', 'pas', 'dan@pas.com', 20)
+#             ]
+# add_many(customer_list)
+
+# show_all()
+# delete("11")
+
+# find_name("omer")
+
+group()
+
+
+sum_rating()
+
+
+
+
+
+
+
+F:\Python_SQLite3\main_project\main_sqlit3\Scripts\python.exe F:/Python_SQLite3/main_project/database.py
+(1, 'nani', 5000)
+(3, 'nally', 6000)
+(2, 'omer', 4000)
+(5, 'tim', 2000)
+(4, 'john', 3000)
+(7, 'mary', 1200)
+(10, 'steph', 160)
+(9, 'was', 120)
+(21, 'dan', 20)
+(21500,)
+
+Process finished with exit code 0
+
+
+
+import sqlite3
+connect=sqlite3.connect("customer.db")
+cursor=connect.cursor()
+
+cursor.execute("""
+CREATE TABLE customer (
+first_name TEXT , last_name TEXT , email_id TEXT)
+""")
+
+
+cursor.execute("INSERT INTO customer VALUES ('juhn','bob','john@codemy .com')")
+
+
+many_customer=[('was','brown','was@brown.com'),
+               ('steph','kuewa','steph@kuewa.com'),
+               ('dan','pas','dan@pas.com'),]
+
+cursor.executemany("INSERT INTO customer VALUES(?,?,?)",many_customer)
+cursor.execute("SELECT last_name,first_name,rowid FROM customer")
+print(cursor.fetchone())
+print(cursor.fetchmany(4))
+print(fetch[3][2])
+
+
+cursor.execute("SELECT rowid,* FROM customer")
+
+cursor.execute("SELECT rowid,* FROM customer WHERE rowid >9 or first_name='omer' or last_name='elder' ")
+cursor.execute("SELECT rowid,* FROM customer WHERE email_id LIKE '%gmail.com'")
+
+cursor.execute("UPDATE customer SET first_name='fast' WHERE rowid=5")
+
+cursor.execute("DELETE FROM customer WHERE rowid > 5")
+connect.commit()
+
+
+
+
+cursor.execute("DROP TABLE customer")
+
+
+cursor.execute("SELECT rowid,* FROM customer ORDER BY last_name ASC LIMIT 2")
+fetch=cursor.fetchall()
+for item in fetch:
+    print(f"your name is {item[1]} {item[2]} your id no:{item[0]} your email id: {item[3]}")
+    print(item)
+
+print("\ncommand executed succesfully>>>>>>>")
+connect.commit()
+connect.close()
+
+
+
+
+
+

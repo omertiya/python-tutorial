@@ -1,0 +1,72 @@
+import datetime
+
+d=datetime.date(2022,6,26)
+print(d)
+
+today=datetime.date.today()
+print(today.year)
+print(today.month)
+print(today.day)
+print(today.weekday())
+print(today.isoweekday())
+
+# date after or befor=today +- delta
+today=datetime.date.today()
+delta=datetime.timedelta(days=7)
+print(today+delta)
+print(today-delta)
+
+
+number of date = date - today
+berth_date=datetime.date(2003,12,4)
+today=datetime.date.today()
+
+tell_berth_date=berth_date - today
+print(tell_berth_date.days)
+print(tell_berth_date.total_seconds())
+
+
+work with time
+time=datetime.time(9,30,45,100000)
+print(time)
+print(time.hour)
+print(time.minute)
+print(time.second)
+
+
+# work with datetime.datetime
+
+date_time=datetime.datetime(2016,7,26,12,30,45,100000)
+print(date_time)
+print(date_time.date())
+print(date_time.time())
+print(date_time.year)
+print(date_time.month)
+print(date_time.day)
+print(date_time.weekday())
+print(date_time.hour)
+print(date_time.minute)
+print(date_time.second)
+print(date_time.microsecond)
+
+
+date_time=datetime.datetime(2016,7,26,12,30,45,100000)
+time_delta=datetime.timedelta(days=7)
+time_delta=datetime.timedelta(hours=12)
+
+print(date_time+time_delta)
+print(datetime.timedelta(days=22,hours=24))
+
+
+
+date_time_today=datetime.datetime.today()
+
+date_time_now=datetime.datetime.now()
+
+date_time_utcnow=datetime.datetime.utcnow()
+
+
+print(date_time_today.date())
+print(date_time_now.strftime("%H:%M:%S"))
+print(date_time_utcnow)
+

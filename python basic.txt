@@ -1,0 +1,1700 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------
+HELLO WORD
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+print("Hello Word")
+print("I love pizza")
+print("It's really good!")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Hello Word
+I love pizza
+It's really good!
+
+Process finished with exit code 0
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+VARIABLE
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+variable= a container for a value. behaves as the value that is contains
+
+name="omer tiya"
+print(name)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+omer tiya
+
+Process finished with exit code 0
+
+print("hello "+name)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+hello omer tiya
+
+Process finished with exit code 0
+
+
+first_name="omer"
+last_name="tiya"
+full_name=first_name+" "+last_name
+
+print("hello "+full_name)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+hello omer tiya
+
+Process finished with exit code 0
+
+age=21
+age=age+1
+print(age)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+22
+
+Process finished with exit code 0
+
+print("your age is :"+str(age))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+your age is :22
+
+Process finished with exit code 0
+
+
+height=250.5
+print("your height is :"+str(height))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+your height is :250.5
+
+Process finished with exit code 0
+
+
+human=True
+print("are you a human?: "+str(human))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+are you a human?: True
+
+Process finished with exit code 0
+
+
+name="omer"
+age=21
+attractive=True
+
+print(name)
+print(age)
+print(attractive)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+omer
+21
+True
+
+Process finished with exit code 0
+
+name,age,attractive="omer",21,True
+
+print(name)
+print(age)
+print(attractive)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+omer
+21
+True
+
+Process finished with exit code 0
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+MULTIPLE ASSIGNMENT
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+sponebob=30
+patruck=30
+sandy=30
+squidward=30
+
+print(sponebob)
+print(patruck)
+print(sandy)
+print(squidward
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+30
+30
+30
+30
+
+Process finished with exit code 0
+
+
+spongebob=patrick=sandy=squidward=30
+
+print(spongebob)
+print(patrick)
+print(sandy)
+print(squidward)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+30
+30
+30
+30
+
+Process finished with exit code 0
+
+name="omer tiya "
+
+print(len(name))
+print(name.find("o"))
+print(name.capitalize())
+print(name.upper())
+print(name.lower())
+print(name.isdigit())
+print(name.isalpha())
+print(name.count("o"))
+print(name.replace("o","x"))
+print(name*3)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+10
+0
+Omer tiya
+OMER TIYA
+omer tiya
+False
+False
+1
+xmer tiya
+omer tiya omer tiya omer tiya
+
+Process finished with exit code 0
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+TYPE CASTING
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+x=1
+y=2.0
+z="3"
+
+x=str(x)
+y=int(y)
+z=float(z)
+
+print(x)
+print(y)
+print(z)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+1
+2
+3.0
+
+Process finished with exit code 0
+#
+name=input("what is your neme?: ")
+age=int(input("how old are you?: "))
+height=float(input("how tall are you?:"))
+
+age=age+1
+height-=3.4
+
+print("hello "+name)
+print("you are "+str(age)+" year old")
+print("yur are "+str(height)+" CM tull")
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+what is your neme?: omer tiya
+how old are you?: 21
+how tall are you?:91.5
+hello omer tiya
+you are 22 year old
+yur are 88.1 CM tull
+
+Process finished with exit code 0
+#
+#
+import math
+pi =3.14
+x=1
+y=2
+z=3
+
+print(round(pi))
+print(math.ceil(pi))
+print(math.floor(pi))
+print(abs(pi))
+print(pow(pi,2))
+print(math.sqrt(25))
+print(max(x,y,z))
+print(min(x,y,z))
+print(f'{1.8331789191448445e+27:.2f}')
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+3
+4
+3
+3.14
+9.8596
+5.0
+3
+1
+1833178919144844471438409728.00
+
+Process finished with exit code 0
+#
+#
+SLICING
+slicing= create a substring by exracting elements from another string
+indexing[] or slice()
+[start:stop:step]
+#
+#
+name="omer tiya"
+
+first_name=name[0:4]
+last_name=name[5:10]
+full_name=name[:]
+funky_name=name[::2]
+reversed_name=name[::-1]
+#
+#
+print(first_name)
+print(last_name)
+print(full_name)
+print(funky_name)
+print(reversed_name)
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+omer
+tiya
+omer tiya
+oe ia
+ayit remo
+
+Process finished with exit code 0
+#
+#
+#
+website1="http://google.com"
+website2="http://wikipedia.com"
+
+slice=slice(7,-4)
+
+print(website1[slice])
+print(website2[slice])
+
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+google
+wikipedia
+
+Process finished with exit code 0
+#
+#
+#
+IF STATEMENT
+if statement= a block of code that will exeute if it's condition is True
+#
+#
+age=int(input("how old are you ""))
+#
+#
+if age ==100:
+    print("you are a century old!")
+elif age >=18:
+    print("you are an adulte!")
+elif age <0:
+    print("you haven't been born yet!")
+else:
+    print("you are a child!")
+
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+how old are you? 100
+how old are you? 18
+how old are you? -5
+how old are you? 2
+you are a century old!
+you are an adulte!
+you haven't been born yet!
+you are a child!
+
+Process finished with exit code 0
+
+#
+LAGICAL OPERATORS
+lagical operators (and , or,not) = used to check if tow or more conditional statements is True
+#
+temp=int(input("what is the temperature outside ? :"))
+#
+if temp >=0 and temp <=30:
+    print("the temperature is good today!")
+    print("go outside!")
+
+elif temp < 0 or temp > 30:
+    print("the temperature is bad today")
+    print("stay inside")
+#
+elif not(temp >=0 and temp <=30):
+    print("the temperature is good today!")
+    print("go outside!")
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+what is the temperature outside ? :25
+the temperature is good today!
+go outside!
+#
+what is the temperature outside ? :50
+the temperature is bad today
+stay inside
+
+what is the temperature outside ? :40
+the temperature is good today!
+go outside!
+Process finished with exit code 0
+#
+#
+WHILE LOOP
+while loop = a statement that will exeute it's block of coce ,
+             as long as it's condition it's remains True
+#
+#
+while 1==1:
+    print("you stuke in a loop! ")
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+you stuke in a loop!
+you stuke in a loop!
+you stuke in a loop!
+you stuke in a loop!
+you stuke in a loop!
+you stuke in a loop!
+#
+Process finished with exit code 0
+#
+#
+name=""
+while len(name)==0:
+    name=input("Enter your name: ")
+
+print("Hello "+name)
+
+#
+name=None
+while not name:
+    name = input("Enter your name: ")
+
+print("hello "+name)
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Enter your name:
+Enter your name:
+Enter your name:
+Enter your name: omer
+Hello omer
+
+Process finished with exit code 0
+#
+FOR LOOP
+for loop = a statemnt that will execute it's block of code
+          a limited amount of times
+#
+              while loop = unlimited
+              for loop=limited
+#
+#
+for i in range(5):
+    print(i)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+0
+1
+2
+3
+4
+5
+
+Process finished with exit code 0
+
+
+for i in range(50,100,10):
+    print(i)
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+50
+60
+70
+80
+90
+
+Process finished with exit code 0
+#
+for i in "omer tiya":
+    print(i)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+o
+m
+e
+r
+
+t
+i
+y
+a
+
+Process finished with exit code 0
+#
+#
+#
+import time
+
+
+for seconds in range(10,0,-1):
+    print(seconds)
+    time.sleep(1)
+print("Happy New Year!")
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Happy New Year!
+
+Process finished with exit code 0
+
+#
+NASTED LOOP
+nested loop = the "inner loop" will finish all of it's iterations
+              before finishing one iteration of the "outer loop"
+#
+rows=5
+columns=5
+symbol="@"
+
+for i in range (rows):
+    for j in range(columns):
+        print(symbol,end=" ")
+    print()
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+@ @ @ @ @
+@ @ @ @ @
+@ @ @ @ @
+@ @ @ @ @
+@ @ @ @ @
+
+Process finished with exit code 0
+#
+#
+rows=int(input("how many rows?: "))
+columns=int(input("how many columns?:"))
+symbol=input("enter the symbol :")
+
+
+for i in range (rows):
+    for j in range(columns):
+        print(symbol,end=" ")
+    print()
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+how many rows?: 3
+how many columns?:4
+enter the symbol :#
+# #
+# #
+# #
+
+Process finished with exit code 0
+#
+LOOP CONTROL
+loop control statements = change a loops excution form its normal sequence
+#
+break = used to terminate the loop entirely
+continue= skips to the next iteration of the loop
+pass = does nothing acts as a placeholder
+#
+#
+while True:
+    name=input("Enter your name: ")
+    if name !="":
+        break
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Enter your name:
+Enter your name:
+Enter your name: omer tiya
+
+Process finished with exit code 0
+#
+phone_number="123-456-7890"
+
+for i in phone_number:
+    if i =="-":
+        continue
+
+    print(i,end="")
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+1234567890
+Process finished with exit code 0
+#
+for i in range(1,6):
+    if i ==3:
+        pass
+    else:
+        print(i)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+1
+2
+4
+5
+
+Process finished with exit code 0
+#
+LIST
+list = used to store multiple items in a single varible
+#
+food=["pizza"]
+#
+# food=["pizza","hamburger","hotdog","spaghetti"]
+print(food)
+print(food[0])
+print(food[2])
+
+food[0]="sushi"
+print(food[0])
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+['pizza', 'hamburger', 'hotdog', 'spaghetti']
+pizza
+hotdog
+sushi
+
+Process finished with exit code 0
+#
+for x in food:
+    print(x)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+pizza
+hamburger
+hotdog
+spaghetti
+
+Process finished with exit code 0
+#
+#
+food.append("ice cream")
+food.remove("hotdog")
+food.insert(0,"cake")
+
+for x in food:
+    print(x)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+cake
+pizza
+hamburger
+spaghetti
+ice cream
+
+Process finished with exit code 0
+#
+food.sort()
+food.pop()
+food.clear()
+#
+2D LISTS
+2D lists = a list of lists
+#
+drinks=["coffee","soda","tea"]
+dinner=["pizza","hamburger","hotdog"]
+dessert=["cake","ice cream"]
+
+food=[drinks,dinner,dessert]
+#
+print(food)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+[['coffee', 'soda', 'tea'], ['pizza', 'hamburger', 'hotdog'], ['cake', 'ice cream']]
+
+Process finished with exit code 0
+#
+print(food[0])
+print(food[2])
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+['coffee', 'soda', 'tea']
+['cake', 'ice cream']
+
+Process finished with exit code 0
+#
+print(food[0][1])
+print(food[2][1])
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+soda
+ice cream
+
+Process finished with exit code 0
+#
+TUPLE
+tuple = collection which is orderd and unchangeable
+         used to group together rrelated data
+#
+student=("omer",21,"male")
+
+print(student)
+print(student.count("omer"))
+print(student.index("male"))
+
+for x in student:
+    print(x)
+
+if "omer" in student:
+    print("omer is here! ")
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+('omer', 21, 'male')
+1
+2
+omer
+21
+male
+omer is here!
+
+Process finished with exit code 0
+#
+SET
+set = collection which is unorderd, unindexed, no duplicate values
+#
+utensils={"fork","spoon","knife","knife","knife","knife"}
+dishes={"bowl","plate","cup","fork","spoon"}
+#
+utensils.add("napkin")
+utensils.remove("knife")
+print(utensils.intersection(dishes))
+print(utensils.difference(dishes))
+print(utensils.union(dishes))
+utensils.update(dishes)
+
+
+for i in utensils:
+    print(i)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+{'spoon', 'fork'}
+{'knife'}
+{'bowl', 'plate', 'knife', 'spoon', 'cup', 'fork'}
+bowl
+plate
+knife
+spoon
+cup
+fork
+
+Process finished with exit code 0
+#
+#
+DICTIONARY
+dictionar = a changeable, unordered collection of unique key:value pairs
+              fast because they hashing allow us to access a value quickly
+#
+capitals={"USA":"Washingtion DC",
+          "India":"New Dehli",
+          "Chaina":"Beijing",
+          "Russia":"Moscow"}
+print(capitals["USA"])
+print(capitals["Russia"])
+print(capitals.get("Germany"))
+capitals.update({"Germany": "Berlin"})
+print(capitals.get("Germany"))
+print(capitals.keys())
+print(capitals.values())
+print(capitals.items())
+
+capitals.pop("China")
+capitals.clear()
+
+capitals.update({"USA":"Las vagas"})
+for key,value in capitals.items():
+    print(key,value)
+
+
+dic={'ÇÍãÏ Ôæä': 813403009.14, 'ãÑßÒ Ïæä áí ÇáÇæÑÇÞ': 1151666669.01, 'ãáÇÒ ÇÍãÏ ÇÞáÇã': 9720286.56}
+print(min(dic.values()))
+
+
+
+
+value = [i for i in dic if dic[i]==(min(dic.values()))][0]
+print("key by value:",value)
+
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Washingtion DC
+Moscow
+None
+Berlin
+dict_keys(['USA', 'India', 'Chaina', 'Russia', 'Germany'])
+dict_values(['Washingtion DC', 'New Dehli', 'Beijing', 'Moscow', 'Berlin'])
+dict_items([('USA', 'Washingtion DC'), ('India', 'New Dehli'), ('Chaina', 'Beijing'), ('Russia', 'Moscow'), ('Germany', 'Berlin')])
+USA Las vagas
+India New Dehli
+Chaina Beijing
+Russia Moscow
+Germany Berlin
+
+
+9720286.56
+key by value: ãáÇÒ ÇÍãÏ ÇÞáÇã
+
+Process finished with exit code 0
+#
+INDEX OPERATOR 
+[]=gives access to a sequence's element (str,list,tuples)
+#
+#
+name="omer TIYA"
+if (name[0].islower()):
+    name=name.capitalize()
+first_name=name[0:4].upper()
+last_name=name[4:9].lower()
+last_character=name[-1]
+print(name)
+
+print(first_name)
+print(last_name)
+print(last_character)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Omer tiya
+OMER
+ tiya
+a
+
+Process finished with exit code 0
+#
+#
+FUNCTION
+function = a block of code which is executed only when it is called
+#
+def hello():
+    print("hello")
+
+hello()
+
+hello()
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+hello
+hello
+
+Process finished with exit code 0
+
+def hello(name):
+    print("hello "+name)
+    print("have a nice day")
+    print()
+
+hello("omer")
+
+name="nana"
+hello(name)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+hello omer
+have a nice day
+
+hello nana
+have a nice day
+
+
+Process finished with exit code 0
+#
+def hello(first_name,last_name,age):
+    print("hello "+first_name+" "+last_name)
+    print("you are "+str(age)+" years old")
+    print("have a nice day")
+
+hello("omer","tiya",21)
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+hello omer tiya
+you are 21 years old
+have a nice day
+
+Process finished with exit code 0
+#
+#
+RETURN STATEMENT
+return statement = functions send python values/objects back to the caller
+                  thase values/objects are know as the function's return value
+#
+#
+def multiply(number1,number2):
+    result=number1*number2
+    return result
+
+x=multiply(2,5)
+print(x)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+10
+
+Process finished with exit code 0
+#
+#
+KEYWORD ARGUMENTS
+keyword arguments= arguments preceded by an identifier when we pass them to a function
+                   the order of the arguments doesn't matter, unlike positional arguments
+                   python knows the names of the arguments that our function receives
+#
+
+def hello(first,middle,last):
+    print("hello "+first+" "+middle+" "+last)
+
+
+hello(first="omer",last="tiya",middle="mohamed")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+hello omer mohamed tiya
+
+Process finished with exit code 0
+#
+NESTED FUNCTIONS CALLS
+nested function calls = function calls inside other function calls
+                        innermost function calls are resolved first
+                        returnd value is used as argument for the next outer function
+#
+#
+num=input("Enter a whole positve number : ")
+num=float(num)
+num=abs(num)
+num=round(num)
+print(num)
+
+print(round(abs(float(input("Enter a whole positive number")))))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Enter a whole positve number : 22.4
+22
+Enter a whole positive number22.6
+23
+
+Process finished with exit code 0
+#
+#
+#
+SCOPE
+scope = the region that a variable is recognized
+         A variable is only available for inside the regin it is created
+         A global and locally scoped versions of a variabel can be created
+#
+#
+name="omer" #global scope (avalilabe insiade and outsid functions)
+
+def display_name():
+    name="tiya"  #local scope (available only inside the functions)
+    print(name)
+
+print(name)
+display_name()
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+omer
+tiya
+
+Process finished with exit code 0
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+omer
+omer
+
+Process finished with exit code 0
+#
+*ARGS
+*arge = parameter that will all arguments into a tuple
+        useful so that a function can accept a varying amount of arguments
+#
+def add(num1,num2):
+    sum=num1*num2
+    return sum
+
+print(add(1,2,3))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Traceback (most recent call last):
+  File "F:\omer_tiya python book\py_book projacet\main_py_book\main\main.py", line 923, in <module>
+    print(add(1,2,3))
+TypeError: add() takes 2 positional arguments but 3 were given
+#
+Process finished with exit code 1
+#
+def add(*args):
+    sum=0
+    for i in args:
+        sum+=i
+    return sum
+
+print(add(1,2,3))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+6
+
+Process finished with exit code 0
+#
+**KWARGS
+**kwrgs = parameter tha will pack all arguments into a disctionary
+          useful so that a function can accept a varying amount of keyword agrument
+#
+def hello(first,last):
+    print("Hello "+first+" "+last)
+
+hello(first="omer",middel="mohamed",last="tiya")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Traceback (most recent call last):
+  File "F:\omer_tiya python book\py_book projacet\main_py_book\main\main.py", line 953, in <module>
+    hello(first="omer",middel="mohamed",last="tiya")
+TypeError: hello() got an unexpected keyword argument 'middel'
+
+Process finished with exit code 1
+#
+#
+def hello(**kwargs):
+    print("Hello "+kwargs["first"]+" "+kwargs["last"])
+
+hello(first="omer",middel="mohamed",last="tiya")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Hello omer tiya
+
+Process finished with exit code 0
+#
+#
+def hello(**kwargs):
+    print("Hello ",end="")
+    for key,value in kwargs.items():
+        print(value,end=" ")
+
+hello(first="omer",middel="mohamed",last="tiya")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Hello omer mohamed tiya
+Process finished with exit code 0
+#
+#
+STR.FORMAT
+str.format() = optional method that gaves users
+               more control when displaying output
+#
+animal="cow"
+item="moon"
+
+print("the "+animal+" jumped over the "+item)
+print("the {} jumped over the {}".format(animal,item))
+print("the {} jumped over the {}".format(item,animal))
+print("the {1} jumped over the {0}".format(item,animal)) #positional argument
+print("the {animal} jumped over the {item}".format(item="moon",animal="cow"))
+text="the {} jumped over the {}"
+print(text.format(animal,item))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+the cow jumped over the moon
+the cow jumped over the moon
+the moon jumped over the cow
+the cow jumped over the moon
+the cow jumped over the moon
+the cow jumped over the moon
+
+Process finished with exit code 0
+#
+name="omer"
+
+print("Hello, my name is {}".format(name))
+print("Hello, my mame is {:10}. Nice to meet you".format(name))
+print("Hello, my mame is {:<10}. Nice to meet you".format(name))
+print("Hello, my mame is {:>10}. Nice to meet you".format(name))
+print("Hello, my mame is {:^10}. Nice to meet you".format(name))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Hello, my name is omer
+Hello, my mame is omer      . Nice to meet you
+Hello, my mame is omer      . Nice to meet you
+Hello, my mame is       omer. Nice to meet you
+Hello, my mame is    omer   . Nice to meet you
+
+Process finished with exit code 0
+#
+number=1000
+
+print("the number is {:.3f}".format(number))
+print("the number is {:,}".format(number))
+print("the number is {:b}".format(number))
+print("the number is {:o}".format(number))
+print("the number is {:X}".format(number))
+print("the number is {:E}".format(number))
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+the number is 1000.000
+the number is 1,000
+the number is 1111101000
+the number is 1750
+the number is 3E8
+the number is 1.000000E+03
+
+Process finished with exit code 0
+#
+#
+import random
+
+x=random.randint(1,6)
+y=random.random()
+print(x)
+print(y)
+
+my_list=["rock","paper","scissors"]
+z=random.choice(my_list)
+print(z)
+
+cards=[1,2,3,4,5,6,7,8,9,"J","Q","K","A"]
+random.shuffle(cards)
+print(cards)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+2
+0.5977623875393342
+scissors
+[5, 1, 3, 'Q', 'K', 2, 4, 8, 7, 6, 'J', 9, 'A']
+
+Process finished with exit code 0
+#
+EXCEPTION
+exception = evevts detected during execution that interrupt the flow of the program
+The try block lets you test a block of code for errors.
+
+The except block lets you handle the error.
+
+The else block lets you execute code when there is no error.
+
+The finally block lets you execute code, regardless of the result of the try- and except blocks.
+
+#
+try:
+    numerator=int(input("Enter a number to divider: "))
+    denominator=int(input("Enter a number to divide by: "))
+    result=numerator/denominator
+
+
+except ZeroDivisionError as e:
+    print(e)
+    print("You can't divide by zero! idiot!")
+
+except ValueError as e:
+    print(e)
+    print("Enter only number plz")
+
+except Exception as e:
+    print(e)
+    print("Something went wrong :( ")
+
+else:
+    print(result)
+
+finally:
+    print("this will always execute")
+#
+#
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+Enter a number to divider: 15
+Enter a number to divide by: 5
+3.0
+#
+Enter a number to divider: 15
+Enter a number to divide by: 0
+division by zero
+You can't divide by zero! idiot!
+#
+Enter a number to divider: 15
+Enter a number to divide by: omer
+invalid literal for int() with base 10: 'omer'
+Enter only number plz
+#
+this will always execute
+
+Process finished with exit code 0
+#
+import os
+
+path="C:\\Users\\Omer Tiya\\Desktop\\pyth nomer.txt"
+
+if os.path.exists(path):
+    print("this location is exists!")
+    if os.path.isfile(path):
+        print("that is a file")
+    elif os.path.isdir(path):
+        print("that is a directory!")
+
+else:
+    print("that location doesn't exist!")
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+this location is exists!
+that is a file
+
+that location doesn't exist!
+#
+Process finished with exit code 0
+#
+#
+path="C:\\Users\\Omer Tiya\\Desktop\\pyth omer.txt"
+
+open_file=open(path,"r")
+read_file=open_file.read()
+print(read_file)
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+this is omer tiya
+say hello to the world
+neie to meed you
+
+
+Process finished with exit code 0
+#
+#
+try:
+    with open("pyth omer.txt") as file:
+        print(file.read())
+except FileNotFoundError:
+    print("that file was not font")
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+this is omer tiya
+say hello to the world
+neie to meed you
+
+
+Process finished with exit code 0
+#
+path="C:\\Users\\Omer Tiya\\Desktop\\pyth omer.txt"
+
+text="uh oh ! this text has been overwritten"
+text="yoooooo \n this is some text \n have a good time :"
+
+with open("text.txt","w") as file:
+    file.write(text)
+#
+with open("text.txt","a") as file:
+    file.write(text)
+
+
+#
+COPY FILE
+copyfile() = copies contents of a file
+copy = copyfile()+ permisson mode   + destionaion can be a directoey
+capy2 = copy() + copies matadata (dile's creation and modification times)
+#
+import shutil
+
+shutil.copyfile("pyth omer.txt","C:\\Users\\Omer Tiya\\Desktop\\copy.txt") # src,dst
+
+
+
+import os
+source="folder"
+destination="C:\\Users\\Omer Tiya\\Desktop\\folder"
+
+try:
+    if os.path.exists(destination):
+        print("there is alredy a file there")
+
+    else:
+        os.replace(source,destination)
+        print(source+" was moved")
+
+except FileNotFoundError:
+    print(source+" was not found")
+
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+there is alredy a file there
+
+Process finished with exit code 0
+#
+#
+import os
+import shutil
+#
+path="text.txt"
+#
+try:
+    shutil.rmtree(path) #delete a directory containing files
+    os.rmdir(path) #delete an empty directory
+    os.remove(path) #delete a file
+except FileNotFoundError:
+    print("file was not found")
+except PermissionError:
+    print("you have no permission to delete that")
+else:
+    print(path+" was deleted")
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+text.txt was deleted
+
+Process finished with exit code 0
+#
+#
+MODULE
+module = file containing python code. may contain functions, classes , etc.
+used with modular programming , which is to separate a program into part
+#
+import messages
+
+messages.hello()
+messages.bye()
+#
+#
+#
+import messages as smg
+
+smg.hello()
+smg.bye()
+#
+#
+from messages import hello,bye
+
+hello()
+bye()
+#
+from messages import *
+hello()
+bye()
+#
+#
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+hello! have a nice day
+bay! have a wonderful time!
+
+Process finished with exit code 0
+#
+help("modules")
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+
+Please wait a moment while I gather a list of all available modules...
+
+F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\lib\site-packages\_distutils_hack\__init__.py:36: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+__future__          _threading_local    gettext             secrets
+_abc                _tkinter            glob                select
+_aix_support        _tracemalloc        graphlib            selectors
+_ast                _uuid               gzip                setuptools
+_asyncio            _virtualenv         hashlib             shelve
+_bisect             _warnings           heapq               shlex
+_blake2             _weakref            hmac                shutil
+_bootlocale         _weakrefset         html                signal
+_bootsubprocess     _winapi             http                site
+_bz2                _xxsubinterpreters  idlelib             smtpd
+_codecs             _zoneinfo           imaplib             smtplib
+_codecs_cn          abc                 imghdr              sndhdr
+_codecs_hk          aifc                imp                 socket
+_codecs_iso2022     antigravity         importlib           socketserver
+_codecs_jp          argparse            inspect             sqlite3
+_codecs_kr          array               io                  sre_compile
+_codecs_tw          ast                 ipaddress           sre_constants
+_collections        asynchat            itertools           sre_parse
+_collections_abc    asyncio             json                ssl
+_compat_pickle      asyncore            keyword             stat
+_compression        atexit              lib2to3             statistics
+_contextvars        audioop             linecache           string
+_csv                base64              locale              stringprep
+_ctypes             bdb                 logging             struct
+_ctypes_test        binascii            lzma                subprocess
+_datetime           binhex              mailbox             sunau
+_decimal            bisect              mailcap             symbol
+_distutils_hack     builtins            main                symtable
+_elementtree        bz2                 marshal             sys
+_functools          cProfile            math                sysconfig
+_hashlib            calendar            messages            tabnanny
+_heapq              cgi                 mimetypes           tarfile
+_imp                cgitb               mmap                telnetlib
+_io                 chunk               modulefinder        tempfile
+_json               cmath               msilib              test
+_locale             cmd                 msvcrt              textwrap
+_lsprof             code                multiprocessing     this
+_lzma               codecs              netrc               threading
+_markupbase         codeop              nntplib             time
+_md5                collections         nt                  timeit
+_msi                colorsys            ntpath              tkinter
+_multibytecodec     compileall          nturl2path          token
+_multiprocessing    concurrent          numbers             tokenize
+_opcode             configparser        opcode              trace
+_operator           contextlib          operator            traceback
+_osx_support        contextvars         optparse            tracemalloc
+_overlapped         copy                os                  tty
+_peg_parser         copyreg             parser              turtle
+_pickle             crypt               pathlib             turtledemo
+_py_abc             csv                 pdb                 types
+_pydecimal          ctypes              pickle              typing
+_pyio               curses              pickletools         unicodedata
+_queue              dataclasses         pip                 unittest
+_random             datetime            pipes               urllib
+_sha1               dbm                 pkg_resources       uu
+_sha256             decimal             pkgutil             uuid
+_sha3               difflib             platform            venv
+_sha512             dis                 plistlib            warnings
+_signal             distutils           poplib              wave
+_sitebuiltins       doctest             posixpath           weakref
+_socket             email               pprint              webbrowser
+_sqlite3            encodings           profile             wheel
+_sre                ensurepip           pstats              winreg
+_ssl                enum                pty                 winsound
+_stat               errno               py_compile          wsgiref
+_statistics         faulthandler        pyclbr              xdrlib
+_string             filecmp             pydoc               xml
+_strptime           fileinput           pydoc_data          xmlrpc
+_struct             fnmatch             pyexpat             xxsubtype
+_symtable           formatter           queue               zipapp
+_testbuffer         fractions           quopri              zipfile
+_testcapi           ftplib              random              zipimport
+_testconsole        functools           re                  zlib
+_testimportmultiple gc                  reprlib             zoneinfo
+_testinternalcapi   genericpath         rlcompleter
+_testmultiphase     getopt              runpy
+_thread             getpass             sched
+
+Enter any module name to get more help.  Or, type "modules spam" to search
+for modules whose name or summary contain the string "spam".
+
+
+Process finished with exit code 0
+#
+#
+#
+import random
+while True:
+    choices=["rock","paper","scissors"]
+
+    computer=random.choice(choices)
+    player=None
+    while player not in choices:
+        player=input("rock, paper, or scissors ?: ").lower()
+
+
+    if player == computer:
+        print("computer: ",computer)
+        print("player: ",player)
+        print("Tie!")
+
+    elif player == "rock":
+        if computer=="paper":
+            print("computer: ", computer)
+            print("player: ", player)
+            print("you lose")
+
+        elif computer=="scissors":
+            print("computer: ", computer)
+            print("player: ", player)
+            print("you win")
+    elif player == "scissors":
+        if computer=="rock":
+            print("computer: ", computer)
+            print("player: ", player)
+            print("you lose")
+
+        elif computer=="paper":
+            print("computer: ", computer)
+            print("player: ", player)
+            print("you win!")
+    elif player == "paper":
+        if computer=="scissors":
+            print("computer: ", computer)
+            print("player: ", player)
+            print("you lose")
+
+        elif computer=="rock":
+            print("computer: ", computer)
+            print("player: ", player)
+            print("you wain")
+
+    play_agine=input("do you want to play agine (YES orNO)?:").upper()
+    if play_agine=="NO":
+        break
+print("good bye")
+
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+rock, paper, or scissors ?: omer
+rock, paper, or scissors ?: paper
+computer:  rock
+player:  paper
+you wain
+do you want to play agine (YES orNO)?:yes
+rock, paper, or scissors ?: rock
+computer:  paper
+player:  rock
+you lose
+do you want to play agine (YES orNO)?:no
+good bye
+
+Process finished with exit code 0
+#
+#
+#
+#
+#
+#
+-------------------------------------
+def new_game():
+    guesses=[]
+    correct_guesses=0
+    question_num=1
+
+    for key in question:
+        print("-------------------------------------")
+        print(key)
+        for i in option[question_num-1]:
+            print(i)
+        guess=input("Enter (A ,B ,C ,or D) : ")
+        guess=guess.upper()
+        guesses.append(guess)
+        correct_guesses+=chack_answer(question.get(key),guess)
+
+        question_num+=1
+    display_score(correct_guesses,guesses)
+-------------------------------------
+def chack_answer(answer,guess):
+    if answer == guess:
+        print("CORRECT!")
+        return 1
+    else:
+        print("WRONG!")
+        return 0
+
+-------------------------------------
+def display_score(correct_guesses,guesses):
+    print("-------------------------------------")
+    print("REDULTD")
+    print("-------------------------------------")
+    print("Answer: ",end="")
+    for i in question:
+        print(question.get(i),end="")
+    print()
+
+    print("Guesses: ", end="")
+    for i in guesses:
+        print(i,end="")
+    print()
+
+    score=int((correct_guesses/len(question))*100)
+    print("your score is: "+str(score)+"%")
+-------------------------------------
+def play_again():
+    resoinse=input("do you want to play agine? (yes or no): ")
+    resoinse=resoinse.lower()
+    if resoinse=="yes":
+        return True
+    else:
+        return False
+
+-------------------------------------
+
+#
+
+
+
+question={
+    "who created python?: ":"A",
+    "what year was python created?: ":"B",
+    "python is tributed to which comedy group?: ":"C",
+    "is the Earth round?: ":"A"
+
+}
+
+option=[["A.Guido Van Rossum","B.Elon Musk","C.Bill Gates","D.Mark Zuckerburg"],
+        ["A.1989","B.1991","C.2000","D.2016"],
+        ["A.Lonely Island","B.Smosh","C.Monty python","D.SNL"],
+        ["A.True","B.False","C.sometime","D.what is Earth?"]]
+
+new_game()
+while play_again():
+    new_game()
+
+print("good bay")
+
+
+
+"F:\omer_tiya python book\py_book projacet\main_py_book\main\main_py_book\Scripts\python.exe" "F:/omer_tiya python book/py_book projacet/main_py_book/main/main.py"
+-------------------------------------
+who created python?:
+A.Guido Van Rossum
+B.Elon Musk
+C.Bill Gates
+D.Mark Zuckerburg
+Enter (A ,B ,C ,or D) : a
+CORRECT!
+-------------------------------------
+what year was python created?:
+A.1989
+B.1991
+C.2000
+D.2016
+Enter (A ,B ,C ,or D) : b
+CORRECT!
+-------------------------------------
+python is tributed to which comedy group?:
+A.Lonely Island
+B.Smosh
+C.Monty python
+D.SNL
+Enter (A ,B ,C ,or D) : c
+CORRECT!
+-------------------------------------
+is the Earth round?:
+A.True
+B.False
+C.sometime
+D.what is Earth?
+Enter (A ,B ,C ,or D) : a
+CORRECT!
+-------------------------------------
+REDULTD
+-------------------------------------
+Answer: ABCA
+Guesses: ABCA
+your score is: 100%
+do you want to play agine? (yes or no): no
+good bay
+
+Process finished with exit code 0
+#
+#
+PYTHON PBJECT ORIENTED PROGRAMMING
+attributes =is / has
+ex. name,age,height
+methods = action
+ex.eat ,sleep , make youtube video
+
+
+
+--------------------------------------------------------------------------------------
+GLOBALS VARIABLE
+---------------------------------------------------------------------------------------
+
+
+from tkinter import *
+list=[]
+optList1 = [
+    "1",
+    "2",
+    "3"
+    ]
+
+
+------------------------------------------------------------
+partial
+-------------------------------------------------------------
+#Pass Arguments to Tkinter Button using partial 
+
+# importing necessary libraries
+from functools import partial
+import tkinter as tk
+
+# defining function
+
+
+def function_name(func):
+	print(func)
+
+
+# creating root window
+root = tk.Tk()
+
+# root window title and dimension
+root.title("Welcome to GeekForGeeks")
+root.geometry("380x400")
+
+# creating button
+btn = tk.Button(root, text="Click Me", command=partial(
+	function_name, "Thanks, Geeks for Geeks !!!"))
+btn.pack()
+
+# running the main loop
+root.mainloop()
+-
+def add():
+    for i in optList1:
+        # list.append(globals()[f'entry_{i}.get()'])
+        list.append(globals()[f'{i}_var'].get())
+        print(list)
+root=Tk()
+
+
+for i in optList1:
+    globals()[f'{i}_var']=StringVar()
+    globals()[f'entry_{i}']=Entry(root,textvariable=globals()[f'{i}_var']).pack()
+
+
+
+
+--------------------------------------
+Combobox
+--------------------------------------
+
+
+With an OptionMenu, I believe you can't.
+
+I think the better widget for you to use is the ttk.Combobox, which adds a scrollbar automatically when there are many values:
+
+from Tkinter import *
+import ttk
+
+master = Tk()
+
+variable = StringVar(master)
+variable.set("one") # default value
+
+w = ttk.Combobox(master, textvariable=variable, values=["Carrier 19EX 4667kW/6.16COP/Vanes", "Carrier 19EX 4997kW/6.40COP/Vanes", "Carrier 19EX 5148kW/6.34COP/Vanes", "Carrier 19EX 5208kW/6.88COP/Vanes", "Carrier 19FA 5651kW/5.50COP/Vanes", "Carrier 19XL 1674kW/7.89COP/Vanes", "Carrier 19XL 1779kW/6.18COP/Vanes", "Carrier 19XL 1797kW/5.69COP/Vanes", "Carrier 19XL 1871kW/6.49COP/Vanes", "Carrier 19XL 2057kW/6.05COP/Vanes", "Carrier 19XR 1076kW/5.52COP/Vanes", "Carrier 19XR 1143kW/6.57COP/VSD", "Carrier 19XR 1157kW/5.62COP/VSD", "Carrier 19XR 1196kW/6.50COP/Vanes", "Carrier 19XR 1213kW/7.78COP/Vanes", "Carrier 19XR 1234kW/5.39COP/VSD", "Carrier 19XR 1259kW/6.26COP/Vanes", "Carrier 19XR 1284kW/6.20COP/Vanes", "Carrier 19XR 1294kW/7.61COP/Vanes", "Carrier 19XR 1350kW/7.90COP/VSD", "Carrier 19XR 1403kW/7.09COP/VSD", "Carrier 19XR 1407kW/6.04COP/VSD", "Carrier 19XR 1410kW/8.54COP/VSD", "Carrier 19XR 1558kW/5.81COP/VSD", "Carrier 19XR 1586kW/5.53COP/VSD", "Carrier 19XR 1635kW/6.36COP/Vanes", "Carrier 19XR 1656kW/8.24COP/VSD", "Carrier 19XR 1723kW/8.32COP/VSD", "Carrier 19XR 1727kW/9.04COP/Vanes", "Carrier 19XR 1758kW/5.86COP/VSD", "Carrier 19XR 1776kW/8.00COP/Vanes", "Carrier 19XR 1801kW/6.34COP/VSD", "Carrier 19XR 2391kW/6.44COP/VSD", "Carrier 19XR 2391kW/6.77COP/Vanes", "Carrier 19XR 742kW/5.42COP/VSD", "Carrier 19XR 823kW/6.28COP/Vanes", "Carrier 19XR 869kW/5.57COP/VSD", "Carrier 19XR 897kW/6.23COP/VSD", "Carrier 19XR 897kW/6.50COP/Vanes", "Carrier 19XR 897kW/7.23COP/VSD", "Carrier 23XL 1062kW/5.50COP/Valve", "Carrier 23XL 1108kW/6.92COP/Valve", "Carrier 23XL 1196kW/6.39COP/Valve", "Carrier 23XL 686kW/5.91COP/Valve", "Carrier 23XL 724kW/6.04COP/Vanes", "Carrier 23XL 830kW/6.97COP/Valve", "Carrier 23XL 862kW/6.11COP/Valve", "Carrier 23XL 862kW/6.84COP/Valve", "Carrier 23XL 865kW/6.05COP/Valve", "Carrier 30RB100 336.5kW/2.8COP", "Carrier 30RB110 371kW/2.8COP", "Carrier 30RB120 416.4kW/2.8COP", "Carrier 30RB130 447.7kW/2.8COP", "Carrier 30RB150 507.8kW/2.8COP", "Carrier 30RB160 538kW/2.9COP", "Carrier 30RB170 585.5kW/2.8COP", "Carrier 30RB190 662.9kW/2.8COP", "Carrier 30RB210 710kW/2.9COP", "Carrier 30RB225 753.3kW/2.8COP", "Carrier 30RB250 836.2kW/2.8COP", "Carrier 30RB275 915kW/2.8COP", "Carrier 30RB300 993.8kW/2.8COP", "Carrier 30RB315 1076.1kW/2.9COP", "Carrier 30RB330 1123.6kW/2.8COP", "Carrier 30RB345 1170.7kW/2.8COP", "Carrier 30RB360 1248.4kW/2.8COP", "Carrier 30RB390 1325.8kW/2.8COP", "Carrier 30RB90 303.8kW/2.9COP", "Carrier 30XA100 330.1kW/3.1COP", "Carrier 30XA110 359.9kW/3COP", "Carrier 30XA120 389kW/3COP", "Carrier 30XA140 466.7kW/3.1COP", "Carrier 30XA160 535.1kW/3.1COP", "Carrier 30XA180 601.9kW/3.1COP", "Carrier 30XA200 681.7kW/3.1COP", "Carrier 30XA220 743.7kW/3.1COP", "Carrier 30XA240 801.6kW/3COP", "Carrier 30XA260 881.7kW/3.1COP", "Carrier 30XA280 943.4kW/3.1COP", "Carrier 30XA300 1010.2kW/3.1COP", "Carrier 30XA325 1077.4kW/3.1COP", "Carrier 30XA350 1138.7kW/3COP", "Carrier 30XA400 1348kW/3COP", "Carrier 30XA450 1499.5kW/2.9COP", "Carrier 30XA500 1609.4kW/2.9COP", "Carrier 30XA80 265.5kW/2.9COP", "Carrier 30XA90 297.8kW/3.1COP", "DOE-2 Centrifugal/5.50COP", "DOE-2 Reciprocating/3.67COP", "McQuay AGZ010BS 34.5kW/2.67COP", "McQuay AGZ013BS 47.1kW/2.67COP", "McQuay AGZ017BS 54.5kW/2.67COP", "McQuay AGZ020BS 71kW/2.67COP", "McQuay AGZ025BS 78.1kW/2.67COP", "McQuay AGZ025D 96kW/2.81COP", "McQuay AGZ029BS 95.7kW/2.67COP", "McQuay AGZ030D 111.1kW/2.81COP", "McQuay AGZ034BS 117.1kW/2.61COP", "McQuay AGZ035D 122.7kW/2.93COP", "McQuay AGZ040D 133.3kW/2.96COP", "McQuay AGZ045D 149.8kW/3.02COP", "McQuay AGZ050D 169.2kW/2.96COP", "McQuay AGZ055D 181.5kW/2.93COP", "McQuay AGZ060D 197.3kW/2.87COP", "McQuay AGZ065D 204.3kW/3.02COP", "McQuay AGZ070D 225.4kW/2.84COP", "McQuay AGZ075D 257.1kW/2.93COP", "McQuay AGZ080D 285.2kW/2.87COP", "McQuay AGZ090D 313.7kW/2.87COP", "McQuay AGZ100D 351kW/2.81COP", "McQuay AGZ110D 373.1kW/2.87COP", "McQuay AGZ125D 411.8kW/2.87COP", "McQuay AGZ130D 455.8kW/2.81COP", "McQuay AGZ140D 479kW/2.99COP", "McQuay AGZ160D 539.1kW/2.93COP", "McQuay AGZ180D 605.6kW/2.81COP", "McQuay AGZ190D 633.4kW/2.96COP", "McQuay PEH 1030kW/8.58COP/Vanes", "McQuay PEH 1104kW/8.00COP/Vanes", "McQuay PEH 1231kW/6.18COP/Vanes", "McQuay PEH 1635kW/7.47COP/Vanes", "McQuay PEH 1895kW/6.42COP/Vanes", "McQuay PEH 1934kW/6.01COP/Vanes", "McQuay PEH 703kW/7.03COP/Vanes", "McQuay PEH 819kW/8.11COP/Vanes", "McQuay PFH 1407kW/6.60COP/Vanes", "McQuay PFH 2043kW/8.44COP/Vanes", "McQuay PFH 2124kW/6.03COP/Vanes", "McQuay PFH 2462kW/6.67COP/Vanes", "McQuay PFH 3165kW/6.48COP/Vanes", "McQuay PFH 4020kW/7.35COP/Vanes", "McQuay PFH 932kW/5.09COP/Vanes", "McQuay WDC 1973kW/6.28COP/Vanes", "McQuay WSC 1519kW/7.10COP/Vanes", "McQuay WSC 1751kW/6.73COP/Vanes", "McQuay WSC 471kW/5.89COP/Vanes", "McQuay WSC 816kW/6.74COP/Vanes", "Multistack MS 172kW/3.67COP/None", "Trane CGAM100 337.6kW/3.11COP", "Trane CGAM110 367.2kW/3.02COP"])
+w.pack()
+
+master.mainloop()
+
+
+----------------------------------------
+chnge keyboard languge to En
+--------------------------------------------
+
+"""pip install py_win_keyboard_layout"""
+import py_win_keyboard_layout
+
+py_win_keyboard_layout.change_foreground_window_keyboard_layout(0x04090409)
