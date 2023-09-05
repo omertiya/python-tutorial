@@ -518,4 +518,4 @@ def error_404(e):
 
 @app.errorhandler(500)
 def error_500(e):
-    return 
+    return render_template('500.html'),500
