@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>dashboard</h1>
+
+file name = {{filename}}
+<br><br>
+<hr>
+
+
+<h3>{{current_user.id}}:<a href="{{url_for('update_user',id=current_user.id)}}"> {{current_user.user_name}}</a> :
+    {{current_user.create_datetime}}</h3>
+<p>
+    name:{{current_user.name}} <br>
+    email:{{current_user.email}} <br>
+    favorite color : {{current_user.favorite_color}} <br>
+    about author : {{current_user.about_author}} <br>
+    password : {{current_user.password_hash}} <br>
+    <a href="{{url_for('delete_user',id=current_user.id)}}" class="btn btn-danger">delete</a>
+    <a href="{{url_for('logout')}}" class="btn btn-outline_danger">logout</a>
+</p>
+{% if current_user.profile_pic %}
+
+<img src="{{url_for('static',filename='img/'+current_user.profile_pic)}}" alt="default-profile-icon-24.jpg"
+    title="profile_pic" width="150">
+{% else %}
+<img src="{{url_for('static',filename='img/default-profile-icon-24.jpg')}}" alt="default-profile-icon-24.jpg"
+    title="profile_pic" width="150">
+{% endif %}
+
+<hr>
+
+<form action="{{url_for('dashboard',id=current_user.id)}}" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {{form.name.label(class='form-label')}}{{form.name(class='form-control',value=current_user.name)}} <br>
+    {{form.user_name.label(class='form-label')}}{{form.user_name(class='form-control',value=current_user.user_name)}}
+    <br>
+    {{form.email.label(class='form-label')}}{{form.email(class='form-control',value=current_user.email)}} <br>
+    {{form.favorite_color.label(class='form-label')}}{{form.favorite_color(class='form-control',value=current_user.favorite_color)}}
+    <br>
+    {{form.about_author.label(class='form-label')}}{{form.about_author(class='form-control',value=current_user.about_author)}}
+    <br>
+    {{form.profile_pic.label(class='form-label')}}{{form.profile_pic(class='form-control',value=current_user.about_author)}}
+    <br>
+
+    {{form.submit(class='btn btn-outline-success')}}
+</form>
+<br><br>
+<hr>
+
+
+
+
+
+
+{% endblock %}

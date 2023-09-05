@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Add User</h1>
+
+<br><br>
+<hr>
+
+<form action="{{url_for('add_user')}}" method="post">
+    {{ form.hidden_tag() }}
+    {{form.name.label(class='form-label')}}{{form.name(class='form-control')}} <br>
+    {{form.user_name.label(class='form-label')}}{{form.user_name(class='form-control')}} <br>
+    {{form.email.label(class='form-label')}}{{form.email(class='form-control')}} <br>
+    {{form.favorite_color.label(class='form-label')}}{{form.favorite_color(class='form-control')}} <br>
+    {{form.about_author.label(class='form-label')}}{{form.about_author(class='form-control')}} <br>
+    {{form.password_1.label(class='form-label')}}{{form.password_1(class='form-control')}} <br>
+    {{form.password_2.label(class='form-label')}}{{form.password_2(class='form-control')}} <br>
+
+    {{form.submit(class='btn btn-outline-success')}}
+</form>
+<br><br>
+<hr>
+
+{% if users_list %}
+{% for user in users_list %}
+
+<h3>{{user.id}}:<a href="{{url_for('update_user',id=user.id)}}"> {{user.user_name}}</a> : {{user.create_datetime}}</h3>
+<p>
+    name:{{user.name}} ,
+    email:{{user.email}},
+    favorite color : {{user.favorite_color}},
+    about author : {{user.about_author}} ,
+    password : {{user.password_hash}}
+    <a href="{{url_for('delete_user',id=user.id)}}" class="btn btn-danger">delete</a>
+</p>
+{% endfor %}
+{% endif %}
+
+
+
+
+{% endblock %}

@@ -1,0 +1,521 @@
+from flask import Flask,render_template,request,flash,redirect,url_for,session
+from flask_wtf import FlaskForm
+from wtforms import StringField,SubmitField,TextAreaField,EmailField,PasswordField
+from wtforms.validators import DataRequired,Length,Email,EqualTo
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime,date
+from sqlalchemy import MetaData
+from flask_migrate import Migrate
+from werkzeug.security import check_password_hash,generate_password_hash
+from flask_login import LoginManager ,UserMixin,login_user,logout_user,login_required,current_user
+from wtforms.fields import FileField
+from werkzeug.utils import secure_filename
+import uuid as uuid
+import os
+
+convention = {
+    "ix": 'ix_%(column_0_label)s',
+    "uq": "uq_%(table_name)s_%(column_0_name)s",
+    "ck": "ck_%(table_name)s_%(constraint_name)s",
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+    "pk": "pk_%(table_name)s"
+}
+
+metadata = MetaData(naming_convention=convention)
+
+
+
+
+
+app=Flask(__name__)
+
+
+
+app.config['SECRET_KEY']='this is may secret key 123456'
+# app.config['SQLALCHEMY_DATABASE_URI']='postgresql://kakoom_user:gSFNcSybYWw46yLfNy3pc36XBOE3I2hc@dpg-cir7jpdph6ev5rb6dfq0-a/kakoom'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///database.db'
+# app.config['SQLALCHEMY_DATABASE_URI']='postgresql://kakoom_user:gSFNcSybYWw46yLfNy3pc36XBOE3I2hc@dpg-cir7jpdph6ev5rb6dfq0-a.oregon-postgres.render.com/kakoom'
+
+
+app.config['img_path']='static/img/'
+
+
+db=SQLAlchemy(app, metadata=metadata)
+migrate=Migrate(app,db)
+login_manager=LoginManager(app)
+
+login_manager.login_view='login'
+
+
+
+@app.context_processor
+def navbar():
+    form = Search_Form()
+
+    return dict(form= form)
+
+
+
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+
+
+
+
+
+
+
+
+
+
+
+class User(db.Model,UserMixin):
+    __tabelname__='user'
+
+    id=db.Column(db.Integer(),primary_key=True)
+    create_datetime=db.Column(db.DateTime(),default=datetime.utcnow)
+    name=db.Column(db.String(),nullable=True,unique=False)
+    user_name=db.Column(db.String(),nullable=False,unique=True)
+    email=db.Column(db.String(),nullable=True,unique=False)
+    favorite_color=db.Column(db.String(),nullable=True,unique=False)
+    about_author=db.Column(db.Text())
+    password_hash=db.Column(db.String(),nullable=False,unique=False)
+    post=db.relationship('Post',backref='poster')
+    profile_pic=db.Column(db.String(),nullable=True ,unique=False)
+
+
+
+    @property
+    def password(self):
+        raise AttributeError('password is not in readable formlate')
+
+    @password.setter
+    def password(self,password):
+        self.password_hash=generate_password_hash(password)
+
+
+    def check_password(self,password):
+        return check_password_hash(self.password_hash,password)
+
+
+
+
+    def __repr__(self):
+        return str(self.user_name)
+
+
+
+class Post(db.Model):
+    id=db.Column(db.Integer(),primary_key=True)
+    add_date=db.Column(db.Date(),default=date.today())
+    title=db.Column(db.String(),nullable=False,unique=False)
+    # author=db.Column(db.String(),nullable=True,unique=False)
+    slug=db.Column(db.String())
+    content=db.Column(db.Text())
+    poster_id=db.Column(db.Integer,db.ForeignKey('user.id'))
+
+
+
+
+
+class Search_Form(FlaskForm):
+    search=StringField(label='search',validators=[DataRequired()])
+    submit=SubmitField(label='submit')
+
+
+
+
+class Add_User_Form(FlaskForm):
+    name=StringField(label='Name',validators=[DataRequired()])
+    user_name=StringField(label='User Name',validators=[DataRequired()])
+    email=EmailField(label='Email id',validators=[Email(),DataRequired()])
+    favorite_color=StringField(label="Favorite Color")
+    about_author=TextAreaField(label='About Auther')
+    password_1=PasswordField(label='Password',validators=[DataRequired(),EqualTo('password_1')])
+    password_2 = PasswordField(label='Password', validators=[DataRequired()])
+    profile_pic=FileField(label='profile pic')
+    submit=SubmitField(label='Submit')
+
+
+
+class Add_Post_Form(FlaskForm):
+    title=StringField(label='Title',validators=[DataRequired()])
+    slug=StringField(label='Slug',validators=[DataRequired()])
+    content=TextAreaField(label='Content',validators=[DataRequired()])
+    submit=SubmitField(label='Submit')
+
+
+
+class Name_Form(FlaskForm):
+    name=StringField(label='Name',validators=[DataRequired()])
+    submit=SubmitField(label='Submit')
+
+class Check_Pws(FlaskForm):
+    email=StringField(label='email',validators=[DataRequired()])
+    password=StringField(label='password',validators=[DataRequired()])
+
+    submit=SubmitField(label='Submit')
+
+
+class Login_Form(FlaskForm):
+    user_name=StringField(label='User name',validators=[DataRequired()])
+    password=PasswordField(label='password',validators=[DataRequired()])
+
+    submit=SubmitField(label='Submit')
+
+
+
+
+
+
+@app.route('/admin')
+@login_required
+def admin():
+    if current_user.id == 1:
+        return render_template('admin.html')
+    else:
+        flash('you most be the admin to accasse this page')
+        return redirect(url_for('index'))
+
+
+@app.route('/search',methods=['POST','GET'])
+def search():
+    form=Search_Form()
+
+    if request.method == 'POST':
+        search=request.form['search']
+        reselt=Post.query.filter(Post.content.like(f'% {search}%'))
+        reselt=reselt.order_by(Post.title).all()
+        flash(search)
+
+        return render_template('search.html',search=reselt)
+
+
+    return render_template('search.html')
+
+@app.route('/login',methods=['POST','GET'])
+def login():
+    form=Login_Form()
+
+    if request.method == 'POST':
+        user_name=request.form['user_name']
+        password=request.form['password']
+
+        user=User.query.filter_by(user_name=user_name).first()
+        if user :
+            if check_password_hash(user.password_hash,password) is True:
+                login_user(user)
+                flash('you login as {}'.format(user.user_name))
+                return redirect(url_for('dashboard'))
+            else:
+                flash('password or user name is wronge')
+                return render_template('login.html',form=form)
+
+        else:
+            flash('no seach user')
+            return render_template('check_pws.html', form=form)
+
+
+
+    return render_template('login.html',form=form)
+
+
+
+@app.route('/logout')
+@login_required
+def logout():
+
+    logout_user()
+    return redirect(url_for('login'))
+
+
+
+@app.route('/dashboard' ,methods=['post','get'])
+@login_required
+def dashboard():
+    form=Add_User_Form()
+    user_to_update=User.query.get_or_404(current_user.id)
+
+    if request.method == 'POST':
+        user_to_update.name=request.form['name']
+        user_to_update.user_name=request.form['user_name']
+        user_to_update.email=request.form['email']
+        user_to_update.favorite_color=request.form['favorite_color']
+        user_to_update.about_author=request.form['about_author']
+        profile_pic=request.files['profile_pic']
+
+        if profile_pic :
+            file_name=secure_filename(profile_pic.filename)
+            file_id=str(uuid.uuid1())+'_'+file_name
+
+            user_to_update.profile_pic=file_id
+            profile_pic.save(os.path.join(app.config['img_path'],file_id))
+            session['filename']=file_id
+        try:
+            db.session.add(user_to_update)
+            db.session.commit()
+            flash('user updated saccessfully !!!')
+            return redirect(url_for("dashboard"))
+        except:
+            flash('somthing went wrong !,try agine leter ??')
+            return redirect(url_for("dashboard"))
+
+
+
+    return render_template('dashboard.html',form=form,filename=session.get('filename'))
+
+@app.route('/add_post',methods=['POST','GET'])
+@login_required
+def add_post():
+    form=Add_Post_Form()
+    post=Post()
+    if request.method == "POST":
+        poster=current_user.id
+        post.poster_id=poster
+        post.title=request.form['title']
+
+        post.slug=request.form['slug']
+        post.content=request.form['content']
+
+        try:
+            db.session.add(post)
+            db.session.commit()
+            flash('post added secccassfully')
+            return redirect(url_for('posts'))
+        except:
+            flash('somthing went wrong')
+            return redirect(url_for('posts'))
+
+
+    return render_template('add_post.html',form=form)
+
+
+
+
+@app.route('/update_post/<int:id>',methods=['POST','GET'])
+@login_required
+def update_post(id):
+    form=Add_Post_Form()
+    post=Post.query.get_or_404(id)
+
+
+    if current_user.id == post.poster.id :
+
+        if request.method == "POST":
+            post.title=request.form['title']
+            post.slug=request.form['slug']
+            post.content=request.form['content']
+
+            try:
+                db.session.add(post)
+                db.session.commit()
+                flash('post updated secccassfully')
+
+                return render_template('post.html', post=post)
+            except:
+                flash('somthing went wrong')
+
+                return render_template('post.html', post=post)
+    else:
+        flash('you not authorize to update this post')
+        return render_template('post.html', post=post)
+
+    form.title.data = post.title
+    form.author.data = post.author
+    form.slug.data = post.slug
+    form.content.data = post.content
+
+
+    return render_template('update_post.html',post=post,form=form,id=id)
+
+
+@app.route('/delete_post/<int:id>')
+@login_required
+def delete_post(id):
+    post_to_delete=Post.query.get_or_404(id)
+
+    if current_user.id == post_to_delete.poster.id or current_user.id == 1:
+        try:
+            db.session.delete(post_to_delete)
+            db.session.commit()
+            flash('post hase been deleted seccassfully!!')
+            return redirect(url_for('posts'))
+        except:
+            flash('somthing went ronge : plese try agine leater')
+            return redirect(url_for('posts'))
+    else:
+        flash('you are not authenticated to delete this post')
+        return redirect(url_for('posts'))
+
+
+
+@app.route('/post/<int:id>')
+def post(id):
+    posts_list=Post.query.get_or_404(id)
+
+
+    return render_template('post.html',post=posts_list)
+
+
+
+
+@app.route('/posts')
+def posts():
+    posts_list=Post.query.all()
+
+
+    return render_template('posts.html',posts_list=posts_list)
+
+
+@app.route('/check_pws',methods=['POST','GET'])
+def check_pws():
+    form=Check_Pws()
+
+    if request.method == 'POST':
+        email=request.form['email']
+        password=request.form['password']
+
+        user=User.query.filter_by(email=email).first()
+        if user :
+            if check_password_hash(user.password_hash,password) is True:
+                flash('this password is craect !!')
+                return render_template('check_pws.html',form=form,check=1)
+            else:
+                flash('password is wronge')
+                return render_template('check_pws.html',form=form,check=0)
+
+        else:
+            flash('no seach user')
+            return render_template('check_pws.html', form=form, check=False)
+
+
+
+    return render_template('check_pws.html',form=form,check=None)
+
+
+
+@app.route('/delete_user/<int:id>')
+@login_required
+def delete_user(id):
+    user_to_delete=User.query.get_or_404(id)
+    if id == current_user.id:
+        try:
+            db.session.delete(user_to_delete)
+            db.session.commit()
+            flash('user hase been deleted seccassfully!!')
+            return redirect(url_for('add_user'))
+        except:
+            flash('somthing went ronge : plese try agine leater')
+            return redirect(url_for('add_user'))
+
+    else:
+        flash('you not authenticated to delete this user')
+        return redirect(url_for('add_user'))
+
+
+@app.route('/update_user/<int:id>',methods=['GET','POST'])
+@login_required
+def update_user(id):
+    form=Add_User_Form()
+    user_to_update=User.query.get_or_404(id)
+
+    if id == current_user.id:
+
+        if request.method == 'POST':
+            user_to_update.name=request.form['name']
+            user_to_update.user_name=request.form['user_name']
+            user_to_update.email=request.form['email']
+            user_to_update.favorite_color=request.form['favorite_color']
+            user_to_update.about_author=request.form['about_author']
+            try:
+                db.session.add(user_to_update)
+                db.session.commit()
+                flash('user updated saccessfully !!!')
+                return redirect(url_for("add_user"))
+            except:
+                flash('somthing went wrong !,try agine leter ??')
+                return redirect(url_for("add_user"))
+    else:
+        flash('you not authenticated to open  this user')
+        return redirect(url_for('add_user'))
+    return render_template('update_user.html',form=form ,user_to_update=user_to_update)
+
+
+
+
+
+
+
+
+@app.route('/add_user',methods=['POST','GET'])
+def add_user():
+    form=Add_User_Form()
+    users_list=User.query.all()
+
+    if request.method == 'POST':
+        check_user = User.query.filter_by(email=request.form['email']).first()
+        if check_user is None:
+            new_user=User(name=request.form['name'],
+                          user_name=request.form['user_name'],
+                          email=request.form['email'],
+                          favorite_color=request.form['favorite_color'],
+                          password=request.form['password_1'],
+                          about_author=request.form['about_author'])
+            try:
+                db.session.add(new_user)
+                db.session.commit()
+                flash('user added succassfully !!!!')
+                return redirect(url_for('add_user'))
+            except:
+                flash('somthing went wrong , plese try agine letter')
+                return redirect(url_for('add_user'))
+        else:
+            flash('user is oradey exists')
+            return redirect(url_for('add_user'))
+
+    return render_template('add_user.html',form=form,users_list=users_list)
+
+@app.route('/name',methods=['POST','GET'])
+def name():
+    form=Name_Form()
+
+    if request.method=="POST":
+        session['name']=request.form['name']
+        flash('name submit seccassfully!!!')
+        return redirect(url_for('name'))
+
+    return render_template('name.html',form=form,name=session.get('name'))
+
+
+
+
+
+
+def num(num1,num2):
+    return num1*num2
+
+
+
+@app.route("/")
+def index():
+    list=['<b> omer </b>','hmed',5,True,'montaser']
+    return render_template('index.html',num=num,list=list)
+
+
+@app.route('/user/<name>')
+def user(name):
+    return render_template('user.html',name=name)
+
+
+@app.errorhandler(404)
+def error_404(e):
+    return render_template('404.html'),404
+
+
+
+@app.errorhandler(500)
+def error_500(e):
+    return 

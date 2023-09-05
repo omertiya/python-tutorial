@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>posts</h1>
+
+{% for post in posts_list %}
+<hr>
+
+<h2>
+    {{post.id}}:{{post.title}} , {{post.add_date}}
+</h2>
+
+<p>
+    author : {{post.poster.user_name}} <br>
+    {{post.slug}} <br><br>
+    {{post.content}}
+
+</p>
+<br>
+{% if post.poster.profile_pic %}
+
+<img src="{{url_for('static',filename='img/'+post.poster.profile_pic)}}" alt="default-profile-icon-24.jpg"
+    title="profile_pic" width="150">
+{% else %}
+<img src="{{url_for('static',filename='img/default-profile-icon-24.jpg')}}" alt="default-profile-icon-24.jpg"
+    title="profile_pic" width="150">
+{% endif %}
+<br>
+<a href="{{url_for('post',id=post.id)}}" class="btn btn-success">open post</a>
+{% if current_user.id == post.poster.id or current_user.id == 1 %}
+<a href="{{url_for('delete_post',id=post.id)}}" class="btn btn-danger">delete post</a>
+{% endif %}
+<br><br>
+{% endfor %}
+
+
+{% endblock %}

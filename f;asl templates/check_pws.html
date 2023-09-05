@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+<h1> check password</h1>
+{% if check == 1 %}
+<h2>password is creacte</h2>
+{% elif check == 0 %}
+<h2>passsword is ronge</h2>
+{% elif check == False %}
+<h2>not saches user</h2>
+{% endif %}
+
+
+<br><br>
+<hr>
+
+<form action="{{url_for('check_pws')}}" method="post">
+    {{ form.hidden_tag() }}
+    {{form.email.label(class='form-label')}}{{form.email(class='form-control')}} <br>
+    {{form.password.label(class='form-label')}}{{form.password(class='form-control')}} <br>
+    {{form.submit(class='btn btn-outline-success')}}
+</form>
+
+{% endblock %}

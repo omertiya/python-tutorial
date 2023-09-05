@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>hi {{name | title}}</h1>
+<h2>nice to meet you</h2>
+<img src="{{url_for('static',filename='img/restaurant_icon_simb.png')}}" alt="restaurant_icon_simb"
+    title="restaurant_icon_simb" style="width: 30vw;">
+{% endblock %}

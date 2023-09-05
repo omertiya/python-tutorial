@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>seach</h1>
+{% if search %}
+
+{% for post in search %}
+<hr>
+
+<h2>
+    {{post.id}}:{{post.title}} , {{post.add_date}}
+</h2>
+
+<p>
+    author : {{post.poster.user_name}} <br>
+    {{post.slug}} <br><br>
+    {{post.content}}
+</p>
+
+{% endfor %}
+
+{% else %}
+<p>
+    your serch is not fond
+</p>
+{% endif %}
+
+
+{% endblock %}

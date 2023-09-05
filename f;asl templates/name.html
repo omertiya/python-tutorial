@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+{% if name %}
+<h1> your name is {{name}}</h1>
+{% endif %}
+
+
+<br><br>
+<hr>
+
+<form action="{{url_for('name')}}" method="post">
+    {{ form.hidden_tag() }}
+    {{form.name.label(class='form-label')}}{{form.name(class='form-control')}} <br>
+    {{form.submit(class='btn btn-outline-success')}}
+</form>
+
+{% endblock %}
