@@ -32,10 +32,8 @@ app=Flask(__name__)
 
 
 app.config['SECRET_KEY']='this is may secret key 123456'
-# app.config['SQLALCHEMY_DATABASE_URI']='postgresql://kakoom_user:gSFNcSybYWw46yLfNy3pc36XBOE3I2hc@dpg-cir7jpdph6ev5rb6dfq0-a/kakoom'
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///database.db'
-# app.config['SQLALCHEMY_DATABASE_URI']='postgresql://kakoom_user:gSFNcSybYWw46yLfNy3pc36XBOE3I2hc@dpg-cir7jpdph6ev5rb6dfq0-a.oregon-postgres.render.com/kakoom'
 
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///database.db'
 
 app.config['img_path']='static/img/'
 
